@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.14</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>java-pingalax-swagger</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <java.version>11</java.version>
+        <hibernate-validator-version>6.0.20.Final</hibernate-validator-version>
+        <springfox-boot-starter-version>3.0.0</springfox-boot-starter-version>
+        <spring-boot-starter-web-version>3.1.2</spring-boot-starter-web-version>
+        <mybatis-plus-boot-starter-version>3.3.2</mybatis-plus-boot-starter-version>
+        <hutool-all-version>5.8.4</hutool-all-version>
+        <mysql-connector-java-version>8.0.20</mysql-connector-java-version>
+        <druid-spring-boot-starter-version>1.2.15</druid-spring-boot-starter-version>
+        <mybatis-plus-core-version>3.3.2</mybatis-plus-core-version>
+        <spring-cloud-starter-alibaba-nacos-config-version>2021.1</spring-cloud-starter-alibaba-nacos-config-version>
+        <spring-boot-starter-cache-version>3.1.2</spring-boot-starter-cache-version>
+    </properties>
+
+
+    <dependencies>
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!--导入JSR303规范 数据校验-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <!--验证 Java Bean 属性的框架，它是 Bean Validation 规范的一个实现。-->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator-version}</version>
+        </dependency>
+
+        <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <!--spring-web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-web-version}</version>
+        </dependency>
+
+        <!--swagger-->
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${springfox-boot-starter-version}</version>
+            <!--屏蔽自带版本屏蔽-->
+            <exclusions>
+                <!--<exclusion>-->
+                <!--    <groupId>io.swagger</groupId>-->
+                <!--    <artifactId>swagger-annotations</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                <!--    <groupId>io.swagger</groupId>-->
+                <!--    <artifactId>swagger-models</artifactId>-->
+                <!--</exclusion>-->
+            </exclusions>
+        </dependency>
+
+
+        <!--mysql数据库连接驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java-version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--lombok
+            @Getter / @Setter：自动生成属性的getter和setter方法。
+            @ToString：自动生成toString方法。
+            @EqualsAndHashCode：自动生成equals方法和hashCode方法。
+            @NoArgsConstructor：自动生成无参构造函数。
+            @AllArgsConstructor：自动生成全参构造函数。
+            @Data：结合@Getter、@Setter、@ToString、@EqualsAndHashCode和@RequiredArgsConstructor的功能。
+            除了以上注解外，Lombok还提供了许多其他注解，
+            例如@NonNull、@Builder、@Slf4j等，用于进一步简化代码的编写和增加代码的可读性。
+            -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--Hutool的核心功能，涵盖了字符串处理、日期时间处理、加密解密、文件操作、网络操作、图片处理、JSON处理、XML处理、HTTP客户端、Excel操作、数据库操作等等-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all-version}</version>
+        </dependency>
+
+        <!--开发者可以方便地集成这些监控和管理功能，帮助更好地监控应用程序的运行状态、排查问题和管理应用程序的生命周期-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-core -->
+        <!--<dependency>-->
+        <!--    <groupId>com.baomidou</groupId>-->
+        <!--    <artifactId>mybatis-plus-core</artifactId>-->
+        <!--    <version>${mybatis-plus-core-version}</version>-->
+        <!--</dependency>-->
+
+        <!--作用是简化在 Spring Boot 项目中集成和配置 Druid 数据库连接池，提供更好的数据库连接管理和性能监控功能。-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid-spring-boot-starter-version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
