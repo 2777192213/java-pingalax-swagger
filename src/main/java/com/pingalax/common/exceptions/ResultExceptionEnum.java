@@ -31,6 +31,7 @@ public enum ResultExceptionEnum {
     FAILED_IS_NULL_ROOF_TYPE("E400101025", "房屋类型不能为NULL", null),
     FAILED_IS_NULL_TYPE("E400101026", "测算类型不能为NULL", null),
     FAILED_IS_NULL_WORKING_STRATEGY("E400101027", "运行策略不能为NULL", null),
+    FAILED_EXISTS_USERNAME("E400101029", "用户名已经存在", null),
     LOGIN_SUCCESS("E400101028", "登录成功", null),
     ;
     private final String code;

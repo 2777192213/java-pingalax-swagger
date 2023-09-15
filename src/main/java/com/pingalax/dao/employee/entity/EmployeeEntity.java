@@ -1,12 +1,10 @@
 package com.pingalax.dao.employee.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /**
  * @author zhouxiaotao
@@ -16,6 +14,7 @@ import java.time.LocalTime;
 @Data
 @TableName("Employee")
 public class EmployeeEntity {
+    @TableId(type= IdType.AUTO)
     private Integer id;
     private String name;
     private String username;
@@ -23,7 +22,17 @@ public class EmployeeEntity {
     private String phone;
     private String sex;
     private String idNumber;
-    private LocalTime updateTime;
-    private String updateUser;
     private Integer status;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
+
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private String updateUser;
+
+    @TableField(fill = FieldFill.INSERT)
+    private String createUser;
 }

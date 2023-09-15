@@ -37,6 +37,19 @@ public interface EmployeeBiz {
      */
     EmployeeBo queryEmployeeById(Integer Id);
 
-
+    /**
+     * 编辑员工信息
+     * @param EmployeeBo 员工实体
+     * @return 员工ID
+     */
     Integer editEmployee(EmployeeBo EmployeeBo);
+
+    /**
+     * 增加员工
+     * @param EmployeeBo 员工实体
+     * @return 员工ID
+     */
+    Integer addEmployee(EmployeeBo EmployeeBo);
+
+
 }

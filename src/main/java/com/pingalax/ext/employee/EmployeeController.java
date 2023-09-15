@@ -65,6 +65,15 @@ public class EmployeeController {
         return ResultUtil.createResultData(integer);
     }
 
+    @ApiOperation("增加员工信息")
+    @PostMapping("/addEmployeeById")
+    public ResultData<Integer> addEmployeeById(@RequestBody Employee employee) {
+        EmployeeBo employeeBo = new EmployeeBo();
+        BeanUtil.copyProperties(employee, employeeBo);
+        Integer integer = employeeBiz.addEmployee(employeeBo);
+        return ResultUtil.createResultData(integer);
+    }
+
     @ApiOperation("测试工厂方法")
     @PostMapping("/CEmployeeById")
     public String cEmployeeById() {

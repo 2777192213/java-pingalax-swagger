@@ -7,7 +7,7 @@ import java.util.Optional;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 认证session实体
  * @date 2023-09-11 13:40
  */
 public class Session {

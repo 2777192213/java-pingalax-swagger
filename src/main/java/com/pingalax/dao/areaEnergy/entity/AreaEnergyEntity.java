@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 区域能源实体类
  * @date 2023-08-17 17:00
  */
 @Data

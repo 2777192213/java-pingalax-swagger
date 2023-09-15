@@ -2,7 +2,7 @@ package com.pingalax.common.factory.proxy;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 测试实体
  * @date 2023-09-13 15:05
  */
 public class main {

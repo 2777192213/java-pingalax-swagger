@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 日志实现层
  * @date 2023-09-08 16:15
  */
 @Mapper

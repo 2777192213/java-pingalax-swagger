@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 分页查找设备实体类
  * @date 2023-08-19 18:56
  */
 @Data

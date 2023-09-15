@@ -1,8 +1,13 @@
 package com.pingalax.biz.employee.bo;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -20,7 +25,9 @@ public class EmployeeBo {
     private String phone;
     private String sex;
     private String idNumber;
-    private LocalTime updateTime;
-    private String updateUser;
     private Integer status;
+    private LocalDateTime updateTime;
+    private LocalDateTime createTime;
+    private String updateUser;
+    private String createUser;
 }

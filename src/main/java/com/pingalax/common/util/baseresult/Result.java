@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 返回结果基础类
  * @date 2023-08-08 13:09
  */
 @Data

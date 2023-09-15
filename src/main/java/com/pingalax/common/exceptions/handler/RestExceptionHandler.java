@@ -5,7 +5,7 @@ import com.pingalax.common.exceptions.ArgumentException;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 返回结果异常类
  * @date 2023-09-06 22:38
  */
 public class RestExceptionHandler {

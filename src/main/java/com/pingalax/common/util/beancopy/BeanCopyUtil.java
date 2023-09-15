@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 类型转换
  * @date 2023-08-07 13:53
  */
 public class BeanCopyUtil extends BeanUtils {

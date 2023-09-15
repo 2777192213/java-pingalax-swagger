@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 光伏管理接口
  * @date 2023-08-06 21:28
  */
 @Api(value = "光伏管理", tags = "光伏管理")

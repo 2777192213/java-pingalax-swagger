@@ -1,7 +1,5 @@
 package com.pingalax.common.factory.proxy;
 
-import java.lang.reflect.Proxy;
-
 /**
  * @author zhouxiaotao
  * @Description: 动态代理类

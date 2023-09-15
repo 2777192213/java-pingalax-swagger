@@ -1,16 +1,13 @@
 package com.pingalax.dao.loginlog.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 日志实体类
  * @date 2023-09-08 16:16
  */
 @Data
@@ -68,9 +65,11 @@ public class LoginLogEntity {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     /**
      * 修改时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime updateTime;
 }

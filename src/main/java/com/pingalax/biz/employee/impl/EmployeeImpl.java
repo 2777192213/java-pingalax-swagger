@@ -9,8 +9,10 @@ import com.pingalax.biz.employee.bo.EmployeeBo;
 import com.pingalax.biz.employee.bo.EmployeePageBo;
 import com.pingalax.biz.loginlog.LoginLogBiz;
 import com.pingalax.biz.loginlog.bo.LoginLogBo;
+import com.pingalax.common.exceptions.ArgumentException;
 import com.pingalax.common.exceptions.ResultExceptionEnum;
 import com.pingalax.common.exceptions.handler.BizException;
+import com.pingalax.common.util.baseresult.Result;
 import com.pingalax.common.util.page.PageResult;
 import com.pingalax.common.util.page.PageUtil;
 import com.pingalax.common.util.result.ResultUtil;
@@ -19,6 +21,7 @@ import com.pingalax.dao.employee.entity.EmployeeEntity;
 import com.pingalax.ext.employee.dto.Employee;
 import com.pingalax.ext.employee.dto.EmployeePageRequest;
 import com.pingalax.ext.employee.dto.EmployeeRequest;
+import com.sun.net.httpserver.Authenticator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -79,6 +82,19 @@ public class EmployeeImpl implements EmployeeBiz {
         BeanUtil.copyProperties(employeeEntity, employeeBo);
         employeeDao.updateById(employeeEntity);
         return employeeBo.getStatus();
+    }
+
+    @Override
+    public Integer addEmployee(EmployeeBo employeeBo) {
+        LambdaQueryWrapper<EmployeeEntity> queryWrapper = new LambdaQueryWrapper<>(EmployeeEntity.class);
+        queryWrapper.eq(employeeBo.getUsername() != null, EmployeeEntity::getUsername, employeeBo.getUsername());
+        EmployeeEntity employeeEntity = employeeDao.selectOne(queryWrapper);
+        if (employeeEntity != null) {
+            ResultUtil.throwResultException(ResultExceptionEnum.FAILED_EXISTS_USERNAME);
+        }
+        EmployeeEntity entity = new EmployeeEntity();
+        BeanUtil.copyProperties(employeeBo, entity);
+        return employeeDao.insert(entity);
     }
 
 }

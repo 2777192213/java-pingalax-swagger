@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 分页查询设备请求参数
  * @date 2023-08-19 22:50
  */
 @Data

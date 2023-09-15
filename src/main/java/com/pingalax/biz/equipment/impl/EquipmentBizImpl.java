@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
+ * @Description: 设备实现类
  * @date 2023-08-09 14:40
  */
 @Component
@@ -40,8 +40,7 @@ public class EquipmentBizImpl implements EquipmentBiz {
         }
         EquipmentEntity equipmentEntity = BeanUtil.copyProperties(equipmentBo, EquipmentEntity.class);
         equipmentDao.insert(equipmentEntity);
-        ResultData<EquipmentEntity> entityResultData = ResultUtil.createResultData(equipmentEntity);
-        return entityResultData;
+        return ResultUtil.createResultData(equipmentEntity);
     }
 
     @Override
@@ -64,9 +63,8 @@ public class EquipmentBizImpl implements EquipmentBiz {
                 .set(EquipmentEntity::getEquipmentName,equipmentBo.getEquipmentName())
                 .set(EquipmentEntity::getEquipmentSiteName,equipmentBo.getEquipmentSiteName())
                 .set(EquipmentEntity::getEquipmentType,equipmentBo.getEquipmentType());
-        int update = equipmentDao.update(equipmentEntity, updateWrapper);
 
-        return update;
+        return equipmentDao.update(equipmentEntity, updateWrapper);
     }
 
     @Cacheable(value = "EquipmentCache",key = "#snCode") //缓存
@@ -75,8 +73,7 @@ public class EquipmentBizImpl implements EquipmentBiz {
         LambdaQueryWrapper<EquipmentEntity> queryWrapper = new LambdaQueryWrapper<>(EquipmentEntity.class);
         queryWrapper.eq(EquipmentEntity::getEquipmentSnCode,snCode);
         EquipmentEntity equipmentEntity = equipmentDao.selectOne(queryWrapper);
-        EquipmentBo equipmentBo = BeanUtil.copyProperties(equipmentEntity, EquipmentBo.class);
-        return equipmentBo;
+        return BeanUtil.copyProperties(equipmentEntity, EquipmentBo.class);
     }
 
     @Override
