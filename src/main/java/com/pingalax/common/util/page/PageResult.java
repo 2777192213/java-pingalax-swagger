@@ -1,8 +1,6 @@
 package com.pingalax.common.util.page;
 
 import com.pingalax.common.util.baseresult.Result;
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;

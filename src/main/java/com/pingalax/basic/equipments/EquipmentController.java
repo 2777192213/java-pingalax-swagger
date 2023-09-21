@@ -33,8 +33,7 @@ public class EquipmentController {
     @PostMapping("/addEquipment")
     public ResultData<EquipmentEntity> addEquipment(@RequestBody @Valid Equipment equipment) {
         EquipmentBo equipmentBo = BeanUtil.copyProperties(equipment, EquipmentBo.class);
-        ResultData<EquipmentEntity> entityResultData = equipmentBiz.addEquipment(equipmentBo);
-        return entityResultData;
+        return equipmentBiz.addEquipment(equipmentBo);
     }
 
     @ApiOperation("编辑设备")
@@ -50,8 +49,7 @@ public class EquipmentController {
     @ResponseBody
     @PostMapping("/deleteEquipment")
     public String deleteEquipment(@Valid String equipmentSncode) {
-        String removeEquipment = equipmentBiz.removeEquipment(equipmentSncode);
-        return removeEquipment;
+        return equipmentBiz.removeEquipment(equipmentSncode);
     }
 
     @ApiOperation("通过ID查找设备")

@@ -48,9 +48,8 @@ public class EquipmentBizImpl implements EquipmentBiz {
 
         LambdaQueryWrapper<EquipmentEntity> queryWrapper = new LambdaQueryWrapper<>(EquipmentEntity.class);
         queryWrapper.eq(equipmentSnCode != null, EquipmentEntity::getEquipmentSnCode, equipmentSnCode);
-        int delete = equipmentDao.delete(queryWrapper);
-        if (delete < 1) {
-            throw new ArithmeticException(ResultExceptionEnum.EQUIPMENT_DOES_NOT_EXIST.getDesc());
+        if (equipmentDao.delete(queryWrapper)<1) {
+            ResultUtil.throwResultException(ResultExceptionEnum.EQUIPMENT_DOES_NOT_EXIST);
         }
         return equipmentSnCode;
     }

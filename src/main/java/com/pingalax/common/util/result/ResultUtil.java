@@ -173,12 +173,22 @@ public class ResultUtil {
     }
 
     /**
-     * 创建不包含参数的返回结果
+     * 创建不包含参数的成功返回结果
      */
     public static Result createNoDataResult() {
         Result result = new Result();
         result.setCode(ResultCode.SUCCESS.getCode());
         result.setDesc(ResultCode.SUCCESS.getDesc());
+        return result;
+    }
+
+    /**
+     * 创建不包含参数的失败返回结果
+     */
+    public static Result createNoDataFailedResult() {
+        Result result = new Result();
+        result.setCode(ResultCode.FAILED.getCode());
+        result.setDesc(ResultCode.FAILED.getDesc());
         return result;
     }
 

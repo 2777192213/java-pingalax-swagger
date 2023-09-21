@@ -24,10 +24,35 @@
         <mybatis-plus-core-version>3.3.2</mybatis-plus-core-version>
         <spring-cloud-starter-alibaba-nacos-config-version>2021.1</spring-cloud-starter-alibaba-nacos-config-version>
         <spring-boot-starter-cache-version>3.1.2</spring-boot-starter-cache-version>
+        <hutool-core-version>5.8.21</hutool-core-version>
+        <mapstruct-version>1.5.3.Final</mapstruct-version>
+        <mapstruct-processor-version>1.5.3.Final</mapstruct-processor-version>
     </properties>
 
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct-processor-version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>${hutool-core-version}</version>
+        </dependency>
         <!--mongodb-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -3,31 +3,19 @@ package com.pingalax.biz.employee.impl;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.pingalax.biz.employee.EmployeeBiz;
 import com.pingalax.biz.employee.bo.EmployeeBo;
 import com.pingalax.biz.employee.bo.EmployeePageBo;
-import com.pingalax.biz.loginlog.LoginLogBiz;
-import com.pingalax.biz.loginlog.bo.LoginLogBo;
-import com.pingalax.common.exceptions.ArgumentException;
 import com.pingalax.common.exceptions.ResultExceptionEnum;
-import com.pingalax.common.exceptions.handler.BizException;
-import com.pingalax.common.util.baseresult.Result;
 import com.pingalax.common.util.page.PageResult;
 import com.pingalax.common.util.page.PageUtil;
 import com.pingalax.common.util.result.ResultUtil;
 import com.pingalax.dao.employee.EmployeeDao;
 import com.pingalax.dao.employee.entity.EmployeeEntity;
-import com.pingalax.ext.employee.dto.Employee;
-import com.pingalax.ext.employee.dto.EmployeePageRequest;
 import com.pingalax.ext.employee.dto.EmployeeRequest;
-import com.sun.net.httpserver.Authenticator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.DigestUtils;
-
-import java.time.LocalDateTime;
 
 /**
  * @author zhouxiaotao

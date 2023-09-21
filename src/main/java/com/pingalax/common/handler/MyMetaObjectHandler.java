@@ -19,12 +19,24 @@ import java.time.LocalTime;
 @Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
+    /**
+     * 插入时调用，修改公共的部分数据
+     *
+     * @param metaObject 元对象
+     */
     @Override
     public void insertFill(MetaObject metaObject) {
+        long id = Thread.currentThread().getId();
+        log.info("线程id为：{}", id);
         metaObject.setValue("updateTime", LocalDateTime.now());
         metaObject.setValue("createTime", LocalDateTime.now());
     }
 
+    /**
+     * 更新时调用，修改公共的部分数据
+     *
+     * @param metaObject 元对象
+     */
     @Override
     public void updateFill(MetaObject metaObject) {
         metaObject.setValue("updateTime", LocalDate.now());

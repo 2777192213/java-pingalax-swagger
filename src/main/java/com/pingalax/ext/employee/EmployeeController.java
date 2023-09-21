@@ -70,6 +70,8 @@ public class EmployeeController {
     public ResultData<Integer> addEmployeeById(@RequestBody Employee employee) {
         EmployeeBo employeeBo = new EmployeeBo();
         BeanUtil.copyProperties(employee, employeeBo);
+        long id = Thread.currentThread().getId();
+        log.info("线程id为：{}",id);
         Integer integer = employeeBiz.addEmployee(employeeBo);
         return ResultUtil.createResultData(integer);
     }
