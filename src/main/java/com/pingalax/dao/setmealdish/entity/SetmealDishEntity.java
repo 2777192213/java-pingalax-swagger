@@ -1,14 +1,8 @@
-package com.pingalax.dao.setmeal.entity;
+package com.pingalax.dao.setmealdish.entity;
 
-/**
- * @author zhouxiaotao
- * @Description: TODO
- * @date 2023-09-19 19:29
- */
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -17,44 +11,40 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 套餐
+ * @author zhouxiaotao
+ * @Description: 套餐菜品关系
+ * @date 2023-09-21 16:52
  */
+
 @Data
-@TableName("setmeal")
-public class SetmealEntity implements Serializable {
+@TableName("setmeal_dish")
+public class SetmealDishEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId
     private Long id;
 
 
-    //分类id
-    private Long categoryId;
+    //套餐id
+    private Long setmealId;
 
 
-    //套餐名称
+    //菜品id
+    private Long dishId;
+
+
+    //菜品名称 （冗余字段）
     private String name;
 
-
-    //套餐价格
+    //菜品原价
     private BigDecimal price;
 
-
-    //状态 0:停用 1:启用
-    private Integer status;
-
-
-    //编码
-    private String code;
+    //份数
+    private Integer copies;
 
 
-    //描述信息
-    private String description;
-
-
-    //图片
-    private String image;
+    //排序
+    private Integer sort;
 
 
     @TableField(fill = FieldFill.INSERT)
@@ -74,5 +64,5 @@ public class SetmealEntity implements Serializable {
 
 
     //是否删除
-    //private Integer isDeleted;
+    private Integer isDeleted;
 }

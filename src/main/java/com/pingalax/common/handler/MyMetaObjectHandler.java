@@ -27,7 +27,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         long id = Thread.currentThread().getId();
-        log.info("线程id为：{}", id);
+        //log.info("线程id为：{}", id);
         metaObject.setValue("updateTime", LocalDateTime.now());
         metaObject.setValue("createTime", LocalDateTime.now());
     }

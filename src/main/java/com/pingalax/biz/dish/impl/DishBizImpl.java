@@ -131,8 +131,15 @@ public class DishBizImpl implements DishBiz {
         DishEntity dishEntity = new DishEntity();
         BeanUtils.copyProperties(dishRequestBo, dishEntity);
         int dishUpdateById = dishDao.updateById(dishEntity);
-        
         int flavorUpdateById = flavorDao.updateById(dishRequestBo.getFlavorEntity());
         return dishUpdateById > 0 && flavorUpdateById > 0;
+    }
+
+    @Override
+    public List<DishBo> queryDishByCategoryId(Long categoryId) {
+        LambdaQueryWrapper<DishEntity> queryWrapper = new LambdaQueryWrapper<>(DishEntity.class);
+        queryWrapper.eq(DishEntity::getCategoryId, categoryId).orderByDesc(DishEntity::getSort);
+        List<DishEntity> dishEntities = dishDao.selectList(queryWrapper);
+        return ResultUtil.convert(dishEntities, DishBo.class);
     }
 }

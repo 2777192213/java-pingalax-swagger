@@ -1,61 +1,56 @@
-package com.pingalax.biz.setmeal.bo;
+package com.pingalax.ext.setmealdish.dto;
+
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * @author zhouxiaotao
- * @Description: TODO
- * @date 2023-09-20 14:26
+ * @Description: 套餐菜品关系
+ * @date 2023-09-21 16:52
  */
+
 @Data
-public class SetmealBo {
+public class SetmealDish implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("ID")
-    @TableId
     private Long id;
 
 
-    //分类id
-    @ApiModelProperty("分类id")
-    private Long categoryId;
+    //套餐id
+    @ApiModelProperty("套餐id")
+    private Long setmealId;
 
 
-    //套餐名称
-    @ApiModelProperty("套餐名称")
+    //菜品id
+    @ApiModelProperty("菜品id")
+    private Long dishId;
+
+
+    //菜品名称 （冗余字段）
+    @ApiModelProperty("菜品名称")
     private String name;
 
-
-    //套餐价格
-    @ApiModelProperty("套餐价格")
+    //菜品原价
+    @ApiModelProperty("菜品原价")
     private BigDecimal price;
 
-
-    //状态 0:停用 1:启用
-    @ApiModelProperty("状态 0:停用 1:启用")
-    private Integer status;
-
-
-    //编码
-    @ApiModelProperty("编码")
-    private String code;
+    //份数
+    @ApiModelProperty("份数")
+    private Integer copies;
 
 
-    //描述信息
-    @ApiModelProperty("描述信息")
-    private String description;
-
-
-    //图片
-    @ApiModelProperty("图片")
-    private String image;
+    //排序
+    @ApiModelProperty("排序")
+    private Integer sort;
 
 
     @ApiModelProperty("创建时间")
@@ -76,5 +71,5 @@ public class SetmealBo {
 
 
     //是否删除
-    //private Integer isDeleted;
+    private Integer isDeleted;
 }

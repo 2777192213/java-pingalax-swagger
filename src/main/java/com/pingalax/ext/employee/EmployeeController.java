@@ -1,6 +1,7 @@
 package com.pingalax.ext.employee;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.pingalax.biz.boot.countdown.CountDownEventHandler;
 import com.pingalax.biz.employee.EmployeeBiz;
 import com.pingalax.biz.employee.bo.EmployeeBo;
 import com.pingalax.biz.employee.bo.EmployeePageBo;
@@ -37,6 +38,8 @@ import javax.annotation.Resource;
 public class EmployeeController {
     @Resource
     private EmployeeBiz employeeBiz;
+
+    private final CountDownEventHandler countDownEventHandler;
 
     @ApiOperation("通过条件查找员工（分页查找）")
     @PostMapping("/queryEmployeeByPage")
@@ -79,6 +82,8 @@ public class EmployeeController {
     @ApiOperation("测试工厂方法")
     @PostMapping("/CEmployeeById")
     public String cEmployeeById() {
+
+        countDownEventHandler.process();
         try {
             Coffee Cappuccino = CoffeeFactory.create(Cappuccino.class);
             log.info("{}", Cappuccino.BuyMethod());

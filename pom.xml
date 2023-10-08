@@ -27,10 +27,18 @@
         <hutool-core-version>5.8.21</hutool-core-version>
         <mapstruct-version>1.5.3.Final</mapstruct-version>
         <mapstruct-processor-version>1.5.3.Final</mapstruct-processor-version>
+        <short-message-service-version>2.0.24</short-message-service-version>
     </properties>
 
 
     <dependencies>
+        <!--短信验证-->
+        <!-- https://mvnrepository.com/artifact/com.aliyun/dysmsapi20170525 -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>dysmsapi20170525</artifactId>
+            <version>${short-message-service-version}</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
         <dependency>

@@ -6,6 +6,8 @@ import com.pingalax.biz.dish.bo.DishPageResponseBo;
 import com.pingalax.biz.dish.bo.DishRequestBo;
 import com.pingalax.common.util.page.PageResult;
 
+import java.util.List;
+
 /**
  * @author zhouxiaotao
  * @Description: 菜品接口
@@ -37,9 +39,8 @@ public interface DishBiz {
     PageResult<DishPageResponseBo> queryDishByPage(DishPageRequestBo dishPageRequestBo);
 
     /**
-     *
      * @param id 菜品ID
-     * @return  菜品
+     * @return 菜品
      */
     DishRequestBo queryDishById(Long id);
 
@@ -50,4 +51,7 @@ public interface DishBiz {
      * @return int
      */
     boolean editDish(DishRequestBo DishRequestBo);
+
+
+    List<DishBo> queryDishByCategoryId(Long categoryId);
 }
