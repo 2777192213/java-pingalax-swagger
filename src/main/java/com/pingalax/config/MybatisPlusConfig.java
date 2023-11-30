@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description: MybatisPlus配置类
  * @date 2023-09-07 17:07
  */
-@Configuration
+//@Configuration
 public class MybatisPlusConfig {
     /**
      * 分页插件

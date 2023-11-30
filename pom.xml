@@ -6,6 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.14</version>
+        <!--<version>3.0.2</version>-->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -14,6 +15,9 @@
 
     <properties>
         <java.version>11</java.version>
+
+        <!--<javax.validation.api.version>2.0.1.Final</javax.validation.api.version>-->
+
         <hibernate-validator-version>6.0.20.Final</hibernate-validator-version>
         <springfox-boot-starter-version>3.0.0</springfox-boot-starter-version>
         <spring-boot-starter-web-version>3.1.2</spring-boot-starter-web-version>
@@ -28,10 +32,36 @@
         <mapstruct-version>1.5.3.Final</mapstruct-version>
         <mapstruct-processor-version>1.5.3.Final</mapstruct-processor-version>
         <short-message-service-version>2.0.24</short-message-service-version>
+        <commons-pool2-version>2.9.0</commons-pool2-version>
+        <jackson-datatype-jsr310-version>2.14.0</jackson-datatype-jsr310-version>
+        <netty-all-version>4.1.97.Final</netty-all-version>
+        <org.eclipse.paho.client.mqttv3-version>1.2.5</org.eclipse.paho.client.mqttv3-version>
     </properties>
 
 
     <dependencies>
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>${org.eclipse.paho.client.mqttv3-version}</version>
+        </dependency>
+
+        <!--时间轮-->
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty-all-version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-datatype-jsr310-version}</version> <!-- 替换为你的Jackson版本 -->
+        </dependency>
+
+
         <!--短信验证-->
         <!-- https://mvnrepository.com/artifact/com.aliyun/dysmsapi20170525 -->
         <dependency>
@@ -82,7 +112,23 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>io.lettuce</groupId>-->
+            <!--        <artifactId>lettuce-core</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons-pool2-version}</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <!--spring-web-->

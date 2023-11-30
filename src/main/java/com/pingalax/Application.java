@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Slf4j
 @SpringBootApplication
-
 //开启事务注解
 @EnableTransactionManagement
 public class Application {
